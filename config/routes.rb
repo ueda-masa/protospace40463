@@ -7,6 +7,6 @@ Rails.application.routes.draw do
    root to: "articles#index"
 
 
-   resources :prototypes, only: [:index, :new, :create, :show]
+   resources :prototypes, only: [:index, :new, :create, :edit, :show]
 
 end

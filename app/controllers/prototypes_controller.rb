@@ -8,13 +8,9 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new   # @prototypes から @prototypeへ変更
   end
 
-
   def edit
-    @prototype = Prototype.new 
+    @prototype = Prototype.new(params[:id])
   end
-
-
-  
 
   def create
     @prototype = Prototype.new(prototype_params)  
@@ -23,13 +19,11 @@ class PrototypesController < ApplicationController
     else
       render :new   # データが保存されなかったら新規投稿ページを表示
     end  
-  end
-
+  end 
 
   def show
     @prototype = Prototype.new(params[:id])
   end
-
 
   private
   def prototype_params
