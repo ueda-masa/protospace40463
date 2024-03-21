@@ -4,7 +4,7 @@ class PrototypesController < ApplicationController
   end
 
   def new
-    @prototypes = Prototype.new
+    @prototype = Prototype.new   # @prototypes から @prototypeへ変更
   end
 
   def create
