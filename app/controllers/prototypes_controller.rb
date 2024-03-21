@@ -3,14 +3,19 @@ class PrototypesController < ApplicationController
     @prototypes = Prototype.all
   end
 
+
+  def new
+    @prototype = Prototype.new   # @prototypes から @prototypeへ変更
+  end
+
+
   def edit
     @prototype = Prototype.new 
   end
 
-  def new
-    @prototype = Prototype.new 
-  end
+
   
+
   def create
     @prototype = Prototype.new(prototype_params)  
     if @prototype.save
@@ -20,9 +25,11 @@ class PrototypesController < ApplicationController
     end  
   end
 
+
   def show
     @prototype = Prototype.new(params[:id])
   end
+
 
   private
   def prototype_params

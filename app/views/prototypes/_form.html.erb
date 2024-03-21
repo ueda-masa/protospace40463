@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_with model: モデル名, local: true do |f|%>
   <div class="field">
     <%= f.label :hoge, "プロトタイプの名称" %><br />
@@ -17,6 +18,27 @@
   <div class="field">
     <%= f.label :hoge, "プロトタイプの画像" %><br />
     <%= f.file_field :hoge, id:"prototype_image" %>
+=======
+<%= form_with model: @prototype, local: true do |f|%>
+  <div class="field">
+    <%= f.label :title, "プロトタイプの名称" %><br />
+    <%= f.text_field :title, id:"prototype_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :catch_copy, "キャッチコピー" %><br />
+    <%= f.text_area :catch_copy, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :concept, "コンセプト" %><br />
+    <%= f.text_area :concept, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "プロトタイプの画像" %><br />
+    <%= f.file_field :image, id:"prototype_image" %>
+>>>>>>> 9a735fcbe6d6e99bd087a467a5c7cc23e80386bb
   </div>
 
   <div class="actions">
