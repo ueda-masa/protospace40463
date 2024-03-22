@@ -2,15 +2,9 @@
   <div class="inner">
     <div class="form__wrapper">
       <h2 class="page-heading">プロトタイプ編集</h2>
-      <%= render 'form' %>
+      <%= render partial: "form", locals: { prototype: @prototype } %>
       <%# 部分テンプレートでフォームを表示する %>
     </div>
   </div>
 </div>
 
-<div class="contents row">
-  <div class="container">
-    <h3>編集する</h3>
-    <%= render partial: "form", locals: { tweet: @tweet } %>
-  </div>
-</div>

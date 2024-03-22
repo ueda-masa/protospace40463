@@ -4,12 +4,14 @@
       <p class="prototype__hedding">
         <%= @prototype.title %>
       </p>
-      <%= link_to "by #{@prototype.user.name}", root_path, class: :prototype__user %>
+      <%= link_to "by #{@prototype.user.name}", edit_prototype_path, class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-        <div class="prototype__manage">
-          <%= link_to "編集する", edit_prototype_path, class: :prototype__btn %>
-          <%= link_to "削除する", destroy_prototype_path, class: :prototype__btn %>
-        </div>
+      <% if user_signed_in? && current_user == @prototype.user %>
+  <div class="prototype__manage">
+    <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
+    <%= link_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>
+  </div>
+<% end %>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="prototype__image">
         <%= image_tag @prototype.image %>
@@ -30,7 +32,7 @@
       </div>
       <div class="prototype__comments">
         <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-        <%= form_with model: モデル名,local: true do |f|%>
+        <%= form_with model: [@prototype, @comment ,@image],local: true do |f|%>
             <div class="field">
               <%= f.label :hoge, "コメント" %><br />
               <%= f.text_field :hoge, id:"comment_content" %>

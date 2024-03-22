@@ -4,11 +4,14 @@
     <%= image_tag(prototype.image, class: :card__img) %>
   <% end %>
   <div class="card__body">
-    <%= link_to prototype.title, edit_pprototype_path(prototype), class: :card__title %>
+    <%= link_to prototype.title, edit_prototype_path(prototype), class: :card__title %>
     <p class="card__summary">
       <%= prototype.catch_copy %>
     </p>
     <%= link_to "by #{prototype.user.name}", root_path, class: :card__user %>
   </div>
+    <%= image_tag prototype.image.variant(resize: '500x500'), class: 'prototype-image' if prototype.image.attached? %>
 </div>
+
+
 
