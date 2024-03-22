@@ -1,9 +1,8 @@
 class PrototypesController < ApplicationController
   #before_action :set_prototype, only: [:edit, :show]
   def index
-    @prototype = Prototype.all
+    @prototypes = Prototype.all
   end
-
 
   def new
     @prototype = Prototype.new   # @prototypes から @prototypeへ変更
@@ -34,11 +33,10 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-
     if @prototype.update(prototype_params)
-      redirect_to edit_prototype_path(@prototype) # データが更新されたら詳細ページにリダイレクト
+      redirect_to prototype_path(@prototype), notice: 'Prototype was successfully updated.'
     else
-      render :edit  # データが更新できなかったら編集ページを表示
+      render :edit
     end
   end
 
