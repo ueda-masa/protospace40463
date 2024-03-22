@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: [:edit, :show]
+  #before_action :set_prototype, only: [:edit, :show]
   def index
     @prototypes = Prototype.all
   end
@@ -46,9 +46,9 @@ class PrototypesController < ApplicationController
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
 
-  def set_prototype
-    @prototype = Prototype.new(params[:id])
-  end
+  #def set_prototype
+   # @prototype = Prototype.new(params[:id])
+  #end
 end
 
 
