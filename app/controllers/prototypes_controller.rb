@@ -27,8 +27,10 @@ class PrototypesController < ApplicationController
     redirect_to root_path
   end
 
-  def show 
+  def show
     @prototype = Prototype.find(params[:id])
+    @comments = @prototype.comments
+    @comment = Comment.new
   end
 
   def update
