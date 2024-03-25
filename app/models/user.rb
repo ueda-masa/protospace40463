@@ -7,7 +7,7 @@ class User < ApplicationRecord
          validates :name, presence: true
          validates :profile, presence: true
          validates :affiliation, presence: true
-         validates :post, presence: true
+         validates :position, presence: true
    
          has_many :prototypes
          has_many :comments

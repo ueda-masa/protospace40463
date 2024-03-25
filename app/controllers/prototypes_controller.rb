@@ -1,8 +1,18 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   #before_action :set_prototype, only: [:edit, :show]
+
   def index
     @prototypes = Prototype.all
+  end
+
+  def ensure_correct_user
+    @prototype = Prototype.find(params[:id])
+    if @prototype.user_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+    end
   end
 
   def new
