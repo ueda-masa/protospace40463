@@ -9,6 +9,7 @@ class Prototype < ApplicationRecord
   validates :concept, presence: true #, unless: :was_attached?
   validate :image_presence
 
+
   def image_presence
     errors.add(:image, "can't be blank") unless image.attached?
   end
