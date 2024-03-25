@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     else
       @prototype = Prototype.find(params[:prototype_id])
       @comments = @prototype.comments.includes(:user)
+      @comment = @prototype.comments.build # <= コメントが保存できなかったときに新しいインスタンスを作成して再度表示する
       render "prototypes/show"
     end
   end
